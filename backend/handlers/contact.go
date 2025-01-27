@@ -16,22 +16,22 @@ func ContactRequest(c *gin.Context) {
 	var newContact models.Contact
 	// body, _ := c.GetRawData()
 	// fmt.Println("Raw body: ", string(body))
-
-	if err := c.ShouldBindJSON(&newContact); err != nil {
+	err := c.ShouldBindJSON(&newContact)
+	if err != nil {
 		fmt.Println("Should bind has error: ", newContact)
 		fmt.Println("Error: ", err)
 		return
 	}
 
-	// err := db.DB.Ping()
-	// if err != nil {
-	// 	log.Fatalf("Ping to db failed")
-	// }
-	// fmt.Println("Ping successful.")
+	err = db.DB.Ping()
+	if err != nil {
+		log.Fatalf("Ping to db failed")
+	}
+	fmt.Println("Ping successful.")
 
 	fmt.Println("new contact variable", newContact)
 	// _, err = db.DB.NamedExec("INSERT INTO contact (name,email,message) VALUES (:name,:email,:message)", newContact)
-	_, err := db.DB.Exec("INSERT INTO contact (name,email,message) VALUES ($1, $2, $3)", newContact.Name, newContact.Email, newContact.Message)
+	_, err = db.DB.Exec("INSERT INTO contact (name,email,message) VALUES ($1, $2, $3)", newContact.Name, newContact.Email, newContact.Message)
 
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to contact"})

@@ -3,18 +3,23 @@ package main
 import (
 	"backend/db"
 	"backend/handlers"
+	"fmt"
+	"log"
 
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
 	db.Connect()
-	defer db.DB.Close()
+
+	err := db.DB.Ping()
+	if err != nil {
+		log.Fatalf("Ping to db failed")
+	}
+	fmt.Println("Ping successful.")
 
 	r := gin.Default()
 	r.Use(corsMiddleware())
-	// r.GET("/tasks", handlers.GetTasks)
-	// r.POST("tasks", handlers.CreateTask)
 
 	r.POST("contactrequest", handlers.ContactRequest)
 
