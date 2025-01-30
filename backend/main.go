@@ -16,7 +16,7 @@ func main() {
 	if err != nil {
 		log.Fatalf("Ping to db failed")
 	}
-	fmt.Println("Ping successful.")
+	fmt.Println("Ping successful. DB is connected")
 
 	r := gin.Default()
 	r.Use(corsMiddleware())

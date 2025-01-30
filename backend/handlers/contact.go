@@ -27,7 +27,7 @@ func ContactRequest(c *gin.Context) {
 	if err != nil {
 		log.Fatalf("Ping to db failed")
 	}
-	fmt.Println("Ping successful.")
+	fmt.Println("Ping successful. DB connected")
 
 	fmt.Println("new contact variable", newContact)
 	// _, err = db.DB.NamedExec("INSERT INTO contact (name,email,message) VALUES (:name,:email,:message)", newContact)

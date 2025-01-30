@@ -1,5 +1,5 @@
 # Use Node.js for the development environment
-FROM node:16
+FROM node:22.13-alpine3.20
 
 # Set the working directory
 WORKDIR /app

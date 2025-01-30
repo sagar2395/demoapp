@@ -12,7 +12,7 @@ export default function Introduction() {
              <div class="w-full flex flex-col justify-center gap-4 md:text-left text-center text-white dark:text-gray-800 md:mt-0 sm:mt-8 mt-4">
                  <h1 class="md:text-4xl sm:text-3xl text-2xl font-semibold font-serif">Hello, My name is Sagar Chhabra</h1>
                  <h3 class="capitalize text-rose-400">i'm <span class="typing text-green-500 dark:text-green-700">Senior Devops Engineer</span></h3>
-                 <p>I am Experienced Devops Engineer with 5+ years of expertise in Cloud computing and devops tools like Microsoft Azure, Amazon AWS, Azure Devops, Terraform, Powershell, Docker and Kubernetes </p>
+                 <p>Helloooo there I am Experienced Devops Engineer with 5+ years of expertise in Cloud computing and devops tools like Microsoft Azure, Amazon AWS, Azure Devops, Terraform, Powershell, Docker and Kubernetes.</p>
                  <div class="sm:mt-4 mt-2">
                      <a class="px-6 py-1 bg-rose-500 text-white rounded-sm" href="/Contact">Get In Touch</a>
                  </div>

@@ -13,7 +13,7 @@ var DB *sql.DB
 func Connect() {
 	var err error
 	// DB, err = sqlx.Connect("postgres", ")
-	DB, err = sql.Open("postgres", "host=localhost port=5432 user=postgres password=Welcome@123 dbname=postgres sslmode=disable")
+	DB, err = sql.Open("postgres", "host=db port=5432 user=postgres password=Welcome@123 dbname=postgres sslmode=disable")
 
 	if err != nil {
 		log.Fatal("Failed to connect to database: ", err)
