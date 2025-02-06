@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demoapp-frontend
+spec:
+  template:
+    spec:
+      containers:
+      - name: demoapp-frontend
+        image: sagarchhabra02/demoapp-frontend
+        ports:
+        - containerPort: 80
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demoapp-backend
+spec:
+  template:
+    spec:
+      containers:
+      - name: demoapp-backend
+        image: sagarchhabra02/demoapp-backend
+        ports:
+        - containerPort: 8080
