@@ -9,6 +9,7 @@ export default function Contact() {
       message: '',
    });
 
+
    async function contactFormSubmit(event) {
       event.preventDefault()
       await axios.post('http://localhost:8080/contactrequest', contactData, 

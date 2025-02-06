@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demoapp-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demoapp-frontend
+  template:
+    metadata:
+      labels:
+        app: demoapp-frontend
+    spec:
+      containers:
+      - name: demoapp-frontend
+        image: sagarchhabra02/demoapp-frontend
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demoapp-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demoapp-backend
+  template:
+    metadata:
+      labels:
+        app: demoapp-backend
+    spec:
+      containers:
+      - name: demoapp-backend
+        image: sagarchhabra02/demoapp-backend
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
+
+
+
+
+
