@@ -1,5 +1,12 @@
-resources:
+namespace: demoapp-prod
+bases:
 - ../../base
 patchesStrategicMerge:
 - patch-deployments.yaml
 - patch-services.yaml
+resources:
+- namespace.yaml
+configMapGenerator:
+  - name: app-config
+    files:
+      - config.env=config-prod.env

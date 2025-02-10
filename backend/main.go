@@ -5,6 +5,7 @@ import (
 	"backend/handlers"
 	"fmt"
 	"log"
+	"net/http"
 
 	"github.com/gin-gonic/gin"
 )
@@ -21,7 +22,10 @@ func main() {
 	r := gin.Default()
 	r.Use(corsMiddleware())
 
-	r.POST("contactrequest", handlers.ContactRequest)
+	r.POST("/api/contactrequest", handlers.ContactRequest)
+	r.GET("/api/ping", func(c *gin.Context) {
+		c.JSON(http.StatusOK, gin.H{"message": "pong"})
+	})
 
 	r.Run(":8080")
 }

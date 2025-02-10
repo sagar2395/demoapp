@@ -7,7 +7,7 @@ spec:
     spec:
       containers:
       - name: demoapp-frontend
-        image: sagarchhabra02/demoapp-frontend-dev
+        image: demoapp-frontend-dev
         ports:
         - containerPort: 3000
 ---
@@ -20,6 +20,6 @@ spec:
     spec:
       containers:
       - name: demoapp-backend
-        image: sagarchhabra02/demoapp-backend-dev
+        image: demoapp-backend-dev
         ports:
         - containerPort: 8080
