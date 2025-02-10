@@ -1,8 +1,10 @@
 package handlers
 
 import (
+	"backend/db"
 	"backend/models"
 	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -22,21 +24,21 @@ func ContactRequest(c *gin.Context) {
 		return
 	}
 
-	// err = db.DB.Ping()
-	// if err != nil {
-	// 	log.Fatalf("Ping to db failed")
-	// }
-	// fmt.Println("Ping successful. DB connected")
+	err = db.DB.Ping()
+	if err != nil {
+		log.Fatalf("Ping to db failed")
+	}
+	fmt.Println("Ping successful. DB connected")
 
-	// fmt.Println("new contact variable", newContact)
-	// // _, err = db.DB.NamedExec("INSERT INTO contact (name,email,message) VALUES (:name,:email,:message)", newContact)
-	// _, err = db.DB.Exec("INSERT INTO contact (name,email,message) VALUES ($1, $2, $3)", newContact.Name, newContact.Email, newContact.Message)
+	fmt.Println("new contact variable", newContact)
+	// _, err = db.DB.NamedExec("INSERT INTO contact (name,email,message) VALUES (:name,:email,:message)", newContact)
+	_, err = db.DB.Exec("INSERT INTO contact (name,email,message) VALUES ($1, $2, $3)", newContact.Name, newContact.Email, newContact.Message)
 
-	// if err != nil {
-	// 	c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to contact"})
-	// 	log.Println(err)
-	// 	return
-	// }
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to contact"})
+		log.Println(err)
+		return
+	}
 
 	fmt.Println("new contact variable", newContact)
 

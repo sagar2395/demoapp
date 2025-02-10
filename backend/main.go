@@ -1,19 +1,22 @@
 package main
 
 import (
+	"backend/db"
 	"backend/handlers"
+	"fmt"
+	"log"
 
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
-	// db.Connect()
+	db.Connect()
 
-	// err := db.DB.Ping()
-	// if err != nil {
-	// 	log.Fatalf("Ping to db failed")
-	// }
-	// fmt.Println("Ping successful. DB is connected")
+	err := db.DB.Ping()
+	if err != nil {
+		log.Fatalf("Ping to db failed")
+	}
+	fmt.Println("Ping successful. DB is connected")
 
 	r := gin.Default()
 	r.Use(corsMiddleware())

@@ -1,3 +1,7 @@
 resources:
-- deployment.yaml
-- services.yaml
+- deployment.yml
+- services.yml
+- configmap.yaml
+- pvc.yaml
+- secrets.yaml
+- postgres-deployment.yaml

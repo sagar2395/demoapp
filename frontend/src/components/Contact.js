@@ -12,7 +12,8 @@ export default function Contact() {
 
    async function contactFormSubmit(event) {
       event.preventDefault()
-      await axios.post('http://localhost:8080/contactrequest', contactData, 
+      console.log("Inside contactFormSubmit")
+      await axios.post('http://demoapp-backend-svc:8080/contactrequest', contactData, 
          {
             headers: {
               "Content-Type": "application/json", // Set Content-Type

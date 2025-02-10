@@ -46,16 +46,3 @@ spec:
       port: 8090     # Service Port
       targetPort: 80  # The port your React app runs on inside the container
   type: NodePort
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: postgres-service
-spec:
-  selector:
-    app: postgres
-  ports:
-    - protocol: TCP
-      port: 5432
-      targetPort: 5432
-  type: ClusterIP  # Internal-only access
