@@ -10,3 +10,8 @@ configMapGenerator:
   - name: app-config
     files:
       - config.env=config-dev.env
+
+secretGenerator:
+  - name: postgres-secret
+    envs:
+      - secret-dev.env
