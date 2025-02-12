@@ -6,10 +6,11 @@ patchesStrategicMerge:
 - patch-services.yaml
 resources:
 - namespace.yaml
+- ingress.yaml
 configMapGenerator:
   - name: app-config
-    files:
-      - config.env=config-prod.env
+    envs:
+      - config-prod.env
 secretGenerator:
   - name: postgres-secret
     envs:

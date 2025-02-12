@@ -4,4 +4,3 @@ resources:
 - configmap.yaml
 - pvc.yaml
 - postgres-deployment.yaml
-- ingress.yaml
