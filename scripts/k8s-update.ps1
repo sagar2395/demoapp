@@ -1,6 +1,6 @@
 
 
-$env = "prod"
+$env = "dev"
 
 # Builds and pushes the images
 docker-compose -f .\docker-compose.base.yml -f .\docker-compose.$env.yml build

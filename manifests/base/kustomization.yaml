@@ -4,3 +4,4 @@ resources:
 - configmap.yaml
 - pvc.yaml
 - postgres-deployment.yaml
+- argocd.yaml

@@ -1,0 +1,24 @@
+apiVersion: skaffold/v4beta12
+kind: Config
+metadata:
+  name: demoapp
+build:
+  artifacts:
+    - image: sagarchhabra02/demoapp-backend
+      context: backend
+      docker:
+        dockerfile: Dockerfile.prod
+    - image: sagarchhabra02/demoapp-frontend
+      context: frontend
+      docker:
+        dockerfile: Dockerfile.dev
+manifests:
+  kustomize:
+    paths:
+      - manifests\overlays\dev
+profiles:
+  - name: prod
+    manifests:
+      kustomize:
+        paths:
+          - manifests\overlays\prod

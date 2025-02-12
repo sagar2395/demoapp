@@ -30,9 +30,9 @@ func Connect() {
 
 	log.Println("Database connected successfully")
 
-	err = DB.Ping()
-	if err != nil {
-		log.Fatalf("Ping to db failed")
-	}
-	fmt.Println("Ping successful.")
+	// err = DB.Ping()
+	// if err != nil {
+	// 	log.Fatalf("Ping to db failed")
+	// }
+	// fmt.Println("Ping successful.")
 }
