@@ -14,7 +14,7 @@ if($env -eq "prod") {
 # Updates the k8s deployment
 kubectl delete -k .\manifests\overlays\$env # Deletes the current deployment
 kubectl apply -k .\manifests\overlays\$env # Updates the deployment
-kubectl apply -f .\maniefests\common # Updates common resources
+kubectl apply -f .\manifests\common # Updates common resources
 
 # For minikube
 minikube tunnel # Exposes the service to the host machine
